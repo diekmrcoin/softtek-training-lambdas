@@ -20,6 +20,6 @@ function getHouseText(house) {
   const houseDiv = document.getElementById(
     house.name.toLowerCase() + "-content"
   );
-  const text = `<p><strong>Total: ${house.total}</strong></p>`;
+  const text = `<p><strong>${house.name}:</strong> ${house.total}</p>`;
   houseDiv.innerHTML = text;
 }
