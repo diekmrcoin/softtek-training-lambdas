@@ -23,6 +23,9 @@ env:
 jobs:
   Build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ env.DEFAULT_DIR }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -31,11 +34,9 @@ jobs:
           cache: "yarn"
 
       - name: Install
-        working-directory: ${{ env.DEFAULT_DIR }}
         run: yarn install
 
       - name: Build
-        working-directory: ${{ env.DEFAULT_DIR }}
         run: npm run build:api
 
       - name: Zip Lambda Files
