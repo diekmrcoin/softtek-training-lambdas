@@ -35,15 +35,25 @@ jobs:
         working-directory: ${{ env.DEFAULT_DIR }}
         run: yarn install
 
-      - name: Build
+      - name: Build Api Lambda
         working-directory: ${{ env.DEFAULT_DIR }}
         run: npm run build:api
 
-      - name: Zip Lambda Files
+      - name: Build Seleccionadora Lambda
+        working-directory: ${{ env.DEFAULT_DIR }}
+        run: npm run build:seleccionadora
+
+      - name: Zip Api Lambda Files
         uses: vimtor/action-zip@v1
         with:
           files: ${{ env.DEFAULT_DIR }}/dist/api/main.js
-          dest: lambda.zip
+          dest: api-lambda.zip
+
+      - name: Zip Seleccionadora Lambda Files
+        uses: vimtor/action-zip@v1
+        with:
+          files: ${{ env.DEFAULT_DIR }}/dist/seleccionadora/main.js
+          dest: seleccionadora-lambda.zip
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1-node16
@@ -52,8 +62,14 @@ jobs:
           aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
 
-      - name: Deploy Lambda
+      - name: Deploy Api Lambda
         run: |
-          aws lambda update-function-code --function-name softtek-training-dev-lmb-api --zip-file fileb://lambda.zip --region ${AWS_REGION}
+          aws lambda update-function-code --function-name softtek-training-dev-lmb-api --zip-file fileb://api-lambda.zip --region ${AWS_REGION}
           sleep 1
           echo "Published new version of the Api lambda function." >> $GITHUB_STEP_SUMMARY
+
+      - name: Deploy Seleccionadora Lambda
+        run: |
+          aws lambda update-function-code --function-name softtek-training-dev-lmb-seleccionadora --zip-file fileb://seleccionadora-lambda.zip --region ${AWS_REGION}
+          sleep 1
+          echo "Published new version of the Seleccionadora lambda function." >> $GITHUB_STEP_SUMMARY
