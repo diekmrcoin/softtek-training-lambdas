@@ -4,7 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@aws-sdk/client-lambda": "^3.271.0",
     "@aws-sdk/lib-dynamodb": "^3.267.0",
+    "esbuild": "^0.17.8",
     "rate-limiter-flexible": "^2.4.1"
+  },
+  "scripts": {
+    "build:api": "esbuild lambda-api/main.js --legal-comments=none --platform=node --target=node16 --bundle --minify --outdir=dist/api/",
+    "build:seleccionadora": "esbuild lambda-seleccionadora/main.js --legal-comments=none --platform=node --target=node16 --bundle --minify --outdir=dist/seleccionadora/"
   }
 }

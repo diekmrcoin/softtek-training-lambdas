@@ -1,13 +1,14 @@
 variable "prefix" { type = string }
+variable "environment" { type = string }
 variable "name" { type = string }
 variable "description" { type = string }
+variable "handler" { type = string }
 
 variable "edge" {
   type    = bool
   default = false
 }
 
-variable "environment" { type = string }
 
 variable "event_sources" {
   type = list(object({
@@ -17,7 +18,6 @@ variable "event_sources" {
   default = []
 }
 
-variable "handler" { type = string }
 
 variable "memory_size" {
   type    = string
@@ -119,7 +119,7 @@ resource "aws_lambda_function" "lambda_function" {
   architectures = [var.edge ? "x86_64" : "arm64"]
   description   = var.description
   filename      = data.archive_file.dummy_lambda_archive.output_path
-  function_name = "oaap-${var.environment}-lmb-${var.name}"
+  function_name = "${var.prefix}-${var.environment}-lmb-${var.name}"
   handler       = var.handler
   memory_size   = var.memory_size
   package_type  = "Zip"
