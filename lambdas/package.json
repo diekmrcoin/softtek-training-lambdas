@@ -10,7 +10,7 @@
     "rate-limiter-flexible": "^2.4.1"
   },
   "scripts": {
-    "build:api": "esbuild lambda-api/main.js --legal-comments=none --platform=node --target=node16 --bundle --minify --outdir=dist/api/",
+    "build:api": "esbuild lambda-api/main.js --legal-comments=none --platform=node --target=node16 --bundle --outdir=dist/api/",
     "build:seleccionadora": "esbuild lambda-seleccionadora/main.js --legal-comments=none --platform=node --target=node16 --bundle --minify --outdir=dist/seleccionadora/"
   }
 }
