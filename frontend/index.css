@@ -22,6 +22,13 @@ body {
   margin: 10px;
 }
 
+.hogwarts-hat {
+  width: 50%;
+}
+.button-call-api {
+  width: 50%;
+}
+
 .request-new-house-col {
   margin-top: 50px;
 }
