@@ -26,7 +26,7 @@ const invoke = async (funcName, payload) => {
 };
 /** snippet-end:[javascript.v3.lambda.actions.Invoke] */
 
-modules.export.handler = async (event, context) => {
+module.export.handler = async (event, context) => {
   const funcName = seleccionadoraName;
   const payload = { key1: "value1", key2: "value2", key3: "value3" };
   const { logs, result } = await invoke(funcName, payload);
