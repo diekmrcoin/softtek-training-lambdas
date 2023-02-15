@@ -15,3 +15,10 @@ module "api" {
   seleccionadora_name = module.seleccionadora.lambda.name
 }
 output "api" { value = module.api }
+
+module "cdn" {
+  source      = "./components/cdn"
+  prefix      = var.prefix
+  environment = var.environment
+}
+output "cdn" { value = module.cdn }
