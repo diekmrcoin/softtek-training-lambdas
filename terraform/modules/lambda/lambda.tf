@@ -111,7 +111,7 @@ data "archive_file" "dummy_lambda_archive" {
 
 provider "aws" {
   alias  = "lambda"
-  region = var.edge ? "us-east-1" : "eu-west-2"
+  region = var.edge ? "us-east-1" : "eu-west-3"
 }
 
 resource "aws_lambda_function" "lambda_function" {
