@@ -28,9 +28,15 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'yarn'
-      - run: yarn install
-      - run: npm run build:api
+          cache: "yarn"
+
+      - name: Install
+        working-directory: ${{ env.DEFAULT_DIR }}
+        run: yarn install
+
+      - name: Build
+        working-directory: ${{ env.DEFAULT_DIR }}
+        run: npm run build:api
 
       - name: Zip Lambda Files
         uses: vimtor/action-zip@v1
