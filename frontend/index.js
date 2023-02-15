@@ -23,3 +23,18 @@ function getHouseText(house) {
   const text = `<p><strong>${house.name}:</strong> ${house.total}</p>`;
   houseDiv.innerHTML = text;
 }
+
+const apiUrl =
+  "https://tactd3rsaxb6bculfgbgwowx2m0akarz.lambda-url.eu-west-3.on.aws/";
+
+function callApi() {
+  fetch(apiUrl)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      const houseDiv = document.getElementById(
+        data.name.toLowerCase() + "-content"
+      );
+      $(houseDiv).effect("bounce", "slow");
+    });
+}
