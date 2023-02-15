@@ -32,6 +32,7 @@ jobs:
         with:
           node-version: 16
           cache: "yarn"
+          cache-dependency-path: ${{ env.DEFAULT_DIR }}/yarn.lock
 
       - name: Install
         run: yarn install
