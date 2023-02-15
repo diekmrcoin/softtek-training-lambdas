@@ -40,7 +40,7 @@ const houses = [
 
 module.exports.handler = async (event) => {
   const randomHouse = houses[Math.floor(Math.random() * houses.length)];
-  return {
+  return JSON.stringify({
     chosenHouse: randomHouse,
-  };
+  });
 };

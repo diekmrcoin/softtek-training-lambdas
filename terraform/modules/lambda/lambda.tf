@@ -3,6 +3,10 @@ variable "environment" { type = string }
 variable "name" { type = string }
 variable "description" { type = string }
 variable "handler" { type = string }
+variable "url" {
+  type    = bool
+  default = false
+}
 
 variable "edge" {
   type    = bool
@@ -61,6 +65,7 @@ output "arn" { value = aws_lambda_function.lambda_function.arn }
 output "invoke_arn" { value = aws_lambda_function.lambda_function.invoke_arn }
 output "name" { value = aws_lambda_function.lambda_function.function_name }
 output "qualified_arn" { value = aws_lambda_function.lambda_function.qualified_arn }
+output "function_url" { value = var.url ? aws_lambda_function_url.url[0].function_url : null }
 
 locals {
   permissions_lookup = {
@@ -162,4 +167,18 @@ resource "aws_lambda_event_source_mapping" "lambda_event_source_mapping" {
   event_source_arn  = var.event_sources[count.index].arn
   function_name     = aws_lambda_function.lambda_function.arn
   starting_position = "LATEST"
+}
+
+resource "aws_lambda_function_url" "url" {
+  count              = var.url ? 1 : 0
+  function_name      = aws_lambda_function.lambda_function.function_name
+  authorization_type = "NONE"
+  cors {
+    allow_credentials = true
+    allow_origins     = ["*"]
+    allow_methods     = ["*"]
+    allow_headers     = ["date", "keep-alive"]
+    expose_headers    = ["keep-alive", "date"]
+    max_age           = 86400
+  }
 }

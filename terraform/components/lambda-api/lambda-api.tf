@@ -14,4 +14,5 @@ module "lambda" {
   variables = {
     "SELECCIONADORA_NAME" = var.seleccionadora_name
   }
+  url = true
 }
