@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Softtek training lambdas</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="./index.js"></script>
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <h2>Softtek training lambdas</h2>
+        <p>Click on the button to get the statistics.</p>
+        <button type="button" class="btn btn-primary" onclick="getStatistics()">Get statistics</button>
+        <div class="row">
+          <div class="col-sm-12 request-new-house-col">
+            <p>Request new house.</p>
+            <button type="button" class="btn btn-primary" onclick="callApi()">Get new house</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <div class="row">
+          <div class="col-sm-12 col-md-6 gryffindor-col">
+            <div id="gryffindor-content"></div>
+          </div>
+          <div class="col-sm-12 col-md-6 hufflepuff-col">
+            <div id="hufflepuff-content"></div>
+          </div>
+          <div class="col-sm-12 col-md-6 ravenclaw-col">
+            <div id="ravenclaw-content"></div>
+          </div>
+          <div class="col-sm-12 col-md-6 slytherin-col">
+            <div id="slytherin-content"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

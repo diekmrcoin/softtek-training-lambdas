@@ -1,0 +1,107 @@
+/* make the body to have an image backgroud, the image is named media/Hogwarts_castle_with_high_color_sky_full_of_stars.png */
+body {
+  background-image: url("media/Hogwarts_castle_with_high_color_sky_full_of_stars-transformed.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+/* make the container class to have white backgroud 10% transparent and centered*/
+.container {
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* house icon */
+.house-icon {
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+}
+
+.request-new-house-col {
+  margin-top: 50px;
+}
+
+/* giffindor col with the image as a background fitting its height of 200px */
+.gryffindor-col {
+  background-image: url("media/gryffindor.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position-x: center;
+  background-position-y: -20px;
+  height: 200px;
+}
+
+#gryffindor-content {
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 10px;
+  text-align: center;
+  padding: 3px;
+  margin: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* slytherin col copy gryffindor style */
+.slytherin-col {
+  background-image: url("media/slytherin.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position-x: center;
+  background-position-y: -20px;
+  height: 200px;
+}
+
+#slytherin-content {
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 10px;
+  text-align: center;
+  padding: 3px;
+  margin: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* hufflepuff col copy gryffindor style */
+.hufflepuff-col {
+  background-image: url("media/hufflepuff.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position-x: center;
+  background-position-y: -20px;
+  height: 200px;
+}
+
+#hufflepuff-content {
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 10px;
+  text-align: center;
+  padding: 3px;
+  margin: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ravenclaw col copy gryffindor style */
+.ravenclaw-col {
+  background-image: url("media/ravenclaw.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position-x: center;
+  background-position-y: -20px;
+  height: 200px;
+}
+
+#ravenclaw-content {
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 10px;
+  text-align: center;
+  padding: 3px;
+  margin: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
