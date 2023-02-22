@@ -43,6 +43,16 @@ resource "aws_iam_role" "iam_role" {
   })
 }
 
+resource "aws_iam_role_policy_attachment" "iam_role_policy_attachment_AWSLambdaBasicExecutionRole" {
+  role       = aws_iam_role.iam_role.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+}
+
+resource "aws_iam_role_policy_attachment" "iam_role_policy_attachment" {
+  role       = aws_iam_role.iam_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AWSLambda_FullAccess"
+}
+
 resource "aws_lambda_function" "lambda_function" {
   architectures = ["arm64"]
   description   = "API"

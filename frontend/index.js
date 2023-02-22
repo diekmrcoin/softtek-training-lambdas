@@ -21,7 +21,7 @@ function getHouseText(house) {
 }
 
 const apiUrl =
-  "https://tactd3rsaxb6bculfgbgwowx2m0akarz.lambda-url.eu-west-3.on.aws/";
+  "https://mmjvjnxtzv7z7qy46fvn7ldw4y0iwbsf.lambda-url.eu-west-3.on.aws/";
 let gettingHouse = false;
 function callApi() {
   if (gettingHouse) return;
