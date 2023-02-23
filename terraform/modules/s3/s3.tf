@@ -20,7 +20,7 @@ resource "aws_s3_bucket" "s3_bucket" {
   bucket = "${var.prefix}-${var.environment}-s3-${var.name}"
 
   lifecycle {
-    prevent_destroy = true
+    prevent_destroy = false
   }
 }
 
